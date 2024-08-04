@@ -8,6 +8,7 @@ public class CharacterSelecter : MonoBehaviour
     [SerializeField] private Button prevBtn;
     [SerializeField] private Button playBtn;
 
+
     private GameObject character;
     public int curIndex;
 

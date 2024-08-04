@@ -47,7 +47,6 @@ public class CompletedLayer : MonoBehaviour
         animator.Play("Start");
         int score = GameManager.Instance.Score;
         int totalScore = GameManager.Instance.TotalScore;
-
         float percent = (float)score / totalScore;
 
         int star = 3;
@@ -57,16 +56,25 @@ public class CompletedLayer : MonoBehaviour
             stars.GetChild(2).gameObject.SetActive(false);
             star = 1;
         }
-        else if (percent < 0.9f)
+        else if (percent < 0.95f)
         {
             stars.GetChild(2).gameObject.SetActive(false);
             star = 2;
         }
         int curLevel = PlayerPrefs.GetInt("LevelSelected");
         Level level = DataManager.Instance().GetLevel(curLevel);
+
         if (level.Star < star)
             DataManager.Instance().SetStar(curLevel, star);
-        DataManager.Instance().SetLevelOpen(curLevel + 1);
+        var totalLevel = 3;
+        if (curLevel != totalLevel)
+        {
+            DataManager.Instance().SetLevelOpen(curLevel + 1);
+        }
+        else
+        {
+            nextBtn.interactable = false;
+        }
 
         this.score.text = score.ToString();
     }

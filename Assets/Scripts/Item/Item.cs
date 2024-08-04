@@ -23,6 +23,7 @@ public class Item : MonoBehaviour
 
     public virtual void Collect()
     {
+        isCollected = true;
         animator.Play("Collect");
     }
 

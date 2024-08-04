@@ -26,9 +26,9 @@ public class GameManager : MonoBehaviour
 
         cha.transform.SetParent(GameObject.Find("Player").transform);
         character = cha.GetComponent<Character>();
-
+        Score = 0;
         charSpawnPosition = character.transform.position;
-        Timer = 30f;
+        Timer = 60f;
         LoadData();
         ResumeGame();
     }

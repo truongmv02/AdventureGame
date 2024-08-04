@@ -33,9 +33,12 @@ public class DataManager
         return l;
     }
 
+
     public void SetLevelOpen(int level)
     {
         levelOpen = level;
+        var l = new Level() { Star = 0, LevelNum = level };
+        levels.Add(l);
         SaveData();
     }
 

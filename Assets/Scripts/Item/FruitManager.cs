@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FruitManager : MonoBehaviour
 {
-
     private void Start()
     {
         int totalScore = 0;

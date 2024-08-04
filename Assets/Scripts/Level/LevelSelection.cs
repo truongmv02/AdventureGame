@@ -9,9 +9,8 @@ public class LevelSelection : MonoBehaviour
 
     private void Start()
     {
-        int levelCount = 10;
+        int levelCount = 3;
         int levelOpen = DataManager.Instance().GetLevelOpen();
-        Debug.Log(levelOpen);
         for (var i = 1; i <= levelCount; i++)
         {
             GameObject levelBtn;
@@ -20,7 +19,7 @@ public class LevelSelection : MonoBehaviour
                 levelBtn = Instantiate(levelPrefab);
                 var text = levelBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
                 text.text = i.ToString();
-                if (i == levelOpen)
+                if (i == levelOpen && DataManager.Instance().GetLevel(levelOpen).Star < 1)
                 {
                     levelBtn.GetComponent<Image>().color = Color.cyan;
                     levelBtn.transform.GetChild(1).gameObject.SetActive(false);

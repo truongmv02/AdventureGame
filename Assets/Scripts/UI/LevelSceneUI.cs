@@ -22,6 +22,6 @@ public class LevelSceneUI : MonoBehaviour
             SceneManager.LoadScene("Level_" + level);
         });
 
-        backBtn.onClick.AddListener(Utility.GoToLevelScene);
+        backBtn.onClick.AddListener(Utility.GotoCharacterScene);
     }
 }
